@@ -12,14 +12,10 @@ Function Almonds(Jelly)
 End Function
 
 Function Nuts(Milk)
-    Dim Oatmilk As String
-    Oatmilk = ""
-    
-    Do While Len(Milk) > 0
-        Oatmilk = Oatmilk + Pears(Strawberries(Milk))
-        Milk = Almonds(Milk)
-    Loop
-    
+    Do
+    Oatmilk = Oatmilk + Pears(Strawberries(Milk))
+    Milk = Almonds(Milk)
+    Loop While Len(Milk) > 0
     Nuts = Oatmilk
 End Function
 
