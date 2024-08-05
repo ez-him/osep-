@@ -1,3 +1,4 @@
+//引用dll在C:\Windows\assembly\GAC_MSIL\System.Management.Automation文件里，另外还要运用install
 using System;
 using System.Collections.Generic;
 using System.Linq;
